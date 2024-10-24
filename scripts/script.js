@@ -2,12 +2,18 @@
 
 const modalMenuEl = document.querySelector('.modal-menu-container');
 const menuPlayBtn = document.querySelector('.menu-play-button');
-const menuTutorialBtn = document.querySelector('.menu-tutorial-button');
+const menuTutorialBtn = document.querySelector('.general-button.menu-tutorial-button');
+const chooseCategoryBtns = document.querySelectorAll('.general-button.choose-category-button');
 
 const overlayEl = document.querySelector('.overlay');
 
 const tutorialContainerEl = document.querySelector('.tutorial-container');
 const goBackBtn = document.querySelector('.go-back-button');
+const secondGoBackBtn = document.querySelector('.second-go-back-button');
+
+const categoriesContainerEl = document.querySelector('.categories-container');
+
+const gameSectionContainerEl = document.querySelector('.game-section-container');
 
 // NOTE: make a function that takes 2 params,
 // applying hidden to the first one
@@ -37,6 +43,20 @@ menuTutorialBtn.addEventListener('click', () => {
 goBackBtn.addEventListener('click', () => {
   toggleOverlay();
   hideAndShow(tutorialContainerEl, modalMenuEl);
+});
+secondGoBackBtn.addEventListener('click', () => {
+  toggleOverlay();
+  hideAndShow(categoriesContainerEl, modalMenuEl);
+});
+menuPlayBtn.addEventListener('click', () => {
+  toggleOverlay();
+  hideAndShow(modalMenuEl, categoriesContainerEl);
+});
+
+chooseCategoryBtns.forEach((categoryBtn) => {
+  categoryBtn.addEventListener('click', () => {
+    hideAndShow(categoriesContainerEl, gameSectionContainerEl);
+  });
 });
 // helper function
 

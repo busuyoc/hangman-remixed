@@ -81,6 +81,7 @@ body {
   line-height: 1.6;
   vertical-align: baseline;
   overflow-x: hidden;
+  overflow-y: hidden;
 
   display: flex;
   justify-content: center;
@@ -125,7 +126,7 @@ body {
 
   background: linear-gradient(180deg, #344aba, rgba(0, 20, 121, 0.83));
   box-shadow: inset 0 0.6rem 0 0.2rem #3c74ff, 0 1rem 0 0.4rem #140e66;
-  /* inner and outer shadow */          
+  /* inner and outer shadow */
   /* horizontal, vertical, no blur, some spread, then color */
 }
 .menu-title-image {
@@ -169,7 +170,7 @@ body {
 
   transition: transform 1 ease;
 }
-.menu-tutorial-button {
+.general-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -207,7 +208,7 @@ body {
 .tutorial-container {
   width: 90%;
   height: 90%;
-  border: 1px solid white;
+  /* border: 1px solid white; */
 
   z-index: 2;
   /* make sure z-index is higher than overlay */
@@ -215,16 +216,16 @@ body {
   /* having display flex overrides the JS func for display: none */
   /* organize things w margins maybe */
 }
-.tutorial-container .upper-section {
+.upper-section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 
-  border: 1px solid white;
+  /* border: 1px solid white; */
 }
-.upper-section .go-back-button {
+.special-button {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -251,7 +252,113 @@ body {
   width: 186px;
   height: 58px;
 }
+.lower-section {
+  width: 100%;
+  height: 100%;
+}
 
 .tutorial-tips-container {
-  border: 1px solid white;
+  /* border: 1px solid white; */
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tip-container {
+  background-color: var(--white);
+  border-radius: 20px;
+  padding: 20px;
+}
+.tip-number {
+  color: var(--blue);
+  font-size: 24px;
+
+  display: inline-block;
+  margin-right: 16px;
+}
+.tip-title {
+  display: inline-block;
+
+  color: var(--dark-navy);
+  font-size: 28px;
+}
+.tip-text {
+  font-size: 16px;
+  color: #887dc0;
+  text-align: justify;
+  letter-spacing: 1px;
+}
+
+/* ======================== */
+/* CATEGORIES SECTION  */
+/* ======================== */
+.categories-container {
+  width: 90%;
+  height: 90%;
+  z-index: 2;
+
+  /* border: 1px dashed white; */
+  overflow: hidden;
+}
+.categories-container .upper-section .upper-section-title-img {
+  width: 245px;
+  height: 60px;
+}
+
+.categories-container .lower-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.general-button.choose-category-button {
+  width: 100%;
+
+  margin: 0;
+  border-radius: 20px;
+  padding: 24px 120px;
+  margin-bottom: 20px;
+}
+
+/* ======================== */
+/* GAME SECTION  */
+/* ======================== */
+.game-section-container {
+  width: 90%;
+  height: 90%;
+  z-index: 2;
+
+  border: 1px dashed white;
+  overflow: hidden;
+}
+.upper-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.burger-menu-container {
+  display: flex;
+  align-items: center;
+}
+.burger-menu-container .special-button {
+  margin-right: 20px;
+}
+.burger-menu-container .burger-menu-title {
+  display: inline-block;
+  color: white;
+  font-size: 40px;
+}
+.lives-container {
+  display: flex;
+  align-items: center;
+}
+.lives-bar {
+  width: 70px;
+  height: 10px;
+  background-color: palevioletred;
+  border-radius: 4px;
+}
+
+.lives-container img {
+  margin: 0 10px;
 }

@@ -19,15 +19,18 @@
       <button class="menu-play-button">
         <img src="./images/play-button.svg" alt="Play Button" class="menu-play-image" />
       </button>
-      <button class="menu-tutorial-button">How to play</button>
+      <button class="general-button menu-tutorial-button">How to play</button>
     </div>
     <!--  -->
     <!-- TUTORIAL MENU -->
     <!--  -->
     <div class="tutorial-container hidden">
       <div class="upper-section">
-        <button class="go-back-button">
-          <img src="./images/go-back.svg" alt="Go back to main menu" />
+        <button class="special-button go-back-button">
+          <!-- special-button for styling -->
+          <!-- go-back-button for the action -->
+          <!-- and such -->
+          <img src="./images/go-back.svg" alt="Go back to the welcome menu" />
         </button>
         <div class="upper-section-title-img">
           <img src="./images/how-to-play.svg" alt="How to play" />
@@ -45,23 +48,64 @@
             </div>
           </div>
           <div class="tip-container">
-            <div class="tip-number">01</div>
-            <div class="tip-title">Choose a category</div>
+            <div class="tip-number">02</div>
+            <div class="tip-title">Guess the Letters</div>
             <div class="tip-text">
-              First, choose a word category, like animals or movies. The computer then randomly
-              selects a secret word from that topic and shows you blanks for each letter of the
-              word.
+              Take turns guessing letters. The computer fills in the relevant blank spaces if your
+              guess is correct. If it’s wrong, you lose some health, which empties after eight
+              incorrect guesses.
             </div>
           </div>
           <div class="tip-container">
-            <div class="tip-number">01</div>
-            <div class="tip-title">Choose a category</div>
+            <div class="tip-number">03</div>
+            <div class="tip-title">Win or Lose</div>
             <div class="tip-text">
-              First, choose a word category, like animals or movies. The computer then randomly
-              selects a secret word from that topic and shows you blanks for each letter of the
-              word.
+              You win by guessing all the letters in the word before your health runs out. If the
+              health bar empties before you guess the word, you lose.
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  -->
+    <!-- CATEGORIES CONTAINER  -->
+    <!--  -->
+    <div class="categories-container hidden">
+      <div class="upper-section">
+        <button class="special-button second-go-back-button">
+          <img src="./images/go-back.svg" alt="Go back to welcome menu" />
+        </button>
+        <div class="upper-section-title-img">
+          <img src="./images/pick-a-category.svg" alt="How to play" />
+          <!-- put event listeners for that -->
+        </div>
+      </div>
+      <div class="lower-section">
+        <button class="general-button choose-category-button">Movies</button>
+        <button class="general-button choose-category-button">TV Shows</button>
+        <button class="general-button choose-category-button">Countries</button>
+        <button class="general-button choose-category-button">Capitals</button>
+        <button class="general-button choose-category-button">Animals</button>
+        <button class="general-button choose-category-button">Sports</button>
+        <!-- https://www.datamuse.com/api/ -->
+        <!-- learn to work with that  so it is dynamic -->
+      </div>
+    </div>
+    <!--  -->
+    <!-- GAME SECTION -->
+    <!--  -->
+    <div class="game-section-container hidden">
+      <div class="upper-section">
+        <div class="burger-menu-container">
+          <button class="special-button">
+            <img src="./images/burger-menu.svg" alt="Open the Main Menu" />
+          </button>
+          <span class="burger-menu-title">Countries</span>
+        </div>
+        <div class="lives-container">
+          <div class="lives-bar"></div>
+          <img src="./images/heart.svg" alt="Lives symbol" />
         </div>
       </div>
     </div>
