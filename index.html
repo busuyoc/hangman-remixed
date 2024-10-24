@@ -10,29 +10,61 @@
   </head>
   <body>
     <!-- ===================== Body Start ===================== -->
+    <div class="overlay hidden"></div>
     <!--  -->
     <!-- MENU MODAL for WELCOME AND PLAY -->
     <!--  -->
-
-    <div class="menu-modal visible">
-      <img src="./images/logo-hangman.svg" alt="Hangman title" class="title-image" />
-      <button class="play-button">
-        <img src="./images/play-button.svg" alt="Play Button" class="play-image" />
+    <div class="modal-menu-container visible">
+      <img src="./images/logo-hangman.svg" alt="Hangman title" class="menu-title-image" />
+      <button class="menu-play-button">
+        <img src="./images/play-button.svg" alt="Play Button" class="menu-play-image" />
       </button>
-      <button class="tutorial-button">How to play</button>
+      <button class="menu-tutorial-button">How to play</button>
     </div>
     <!--  -->
-    <!-- OVERLAY -->
     <!-- TUTORIAL MENU -->
-    <div class="overlay hidden">
-      <div class="instructions-container">
-        <button class="corner-action-button">
-          <img src="./images/go-back.svg" alt="Go back to menu" />
+    <!--  -->
+    <div class="tutorial-container hidden">
+      <div class="upper-section">
+        <button class="go-back-button">
+          <img src="./images/go-back.svg" alt="Go back to main menu" />
         </button>
-        <img src="./images/how-to-play.svg" alt="How to play" />
+        <div class="upper-section-title-img">
+          <img src="./images/how-to-play.svg" alt="How to play" />
+        </div>
+      </div>
+      <div class="lower-section">
+        <div class="tutorial-tips-container">
+          <div class="tip-container">
+            <div class="tip-number">01</div>
+            <div class="tip-title">Choose a category</div>
+            <div class="tip-text">
+              First, choose a word category, like animals or movies. The computer then randomly
+              selects a secret word from that topic and shows you blanks for each letter of the
+              word.
+            </div>
+          </div>
+          <div class="tip-container">
+            <div class="tip-number">01</div>
+            <div class="tip-title">Choose a category</div>
+            <div class="tip-text">
+              First, choose a word category, like animals or movies. The computer then randomly
+              selects a secret word from that topic and shows you blanks for each letter of the
+              word.
+            </div>
+          </div>
+          <div class="tip-container">
+            <div class="tip-number">01</div>
+            <div class="tip-title">Choose a category</div>
+            <div class="tip-text">
+              First, choose a word category, like animals or movies. The computer then randomly
+              selects a secret word from that topic and shows you blanks for each letter of the
+              word.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
     <!-- ===================== Body End ===================== -->
   </body>
 </html>
