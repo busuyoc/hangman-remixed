@@ -10,13 +10,29 @@
   </head>
   <body>
     <!-- ===================== Body Start ===================== -->
-    <div class="menu-modal">
+    <!--  -->
+    <!-- MENU MODAL for WELCOME AND PLAY -->
+    <!--  -->
+
+    <div class="menu-modal visible">
       <img src="./images/logo-hangman.svg" alt="Hangman title" class="title-image" />
       <button class="play-button">
         <img src="./images/play-button.svg" alt="Play Button" class="play-image" />
       </button>
       <button class="tutorial-button">How to play</button>
     </div>
+    <!--  -->
+    <!-- OVERLAY -->
+    <!-- TUTORIAL MENU -->
+    <div class="overlay hidden">
+      <div class="instructions-container">
+        <button class="corner-action-button">
+          <img src="./images/go-back.svg" alt="Go back to menu" />
+        </button>
+        <img src="./images/how-to-play.svg" alt="How to play" />
+      </div>
+    </div>
+
     <!-- ===================== Body End ===================== -->
   </body>
 </html>
