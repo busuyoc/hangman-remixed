@@ -35,12 +35,16 @@ const quitButton = document.querySelector('.special-button.quit-button');
 
 // event listeners for buttons
 welcomeMenuPlayBtn.addEventListener('click', () => {
-  toggleOverlay();
-  hideAndShow(welcomePage, categoriesPage);
+  toggleOverlay2();
+  // hideAndShow(welcomePage, categoriesPage);
+  toggleVisibility(welcomePage, true);
+  toggleVisibility(categoriesPage, false);
 });
 howToPlayBtn.addEventListener('click', () => {
-  toggleOverlay();
-  hideAndShow(welcomePage, tutorialPage);
+  toggleOverlay2();
+  // hideAndShow(welcomePage, tutorialPage);
+  toggleVisibility(welcomePage, true)
+  toggleVisibility(tutorialPage, false)
 });
 tutorialGoBackBtn.addEventListener('click', () => {
   toggleOverlay();
@@ -58,14 +62,6 @@ chooseCategoryBtns.forEach((categoryBtn) => {
 burgerMenuButton.addEventListener('click', () => {
   incZidx(overlayEl, gameOverviewPage);
   gameOverviewPage.classList.remove('hidden');
-
-  // the game-page--section is still visible
-  // the modal moves on top of it (gains z-index: +1)
-  // game-overview-page--section moves on top of it all (z-index: 10)
-  //
-  // overlay z-index is 1; pages z-index is 2;
-  //
-  // the overlay z-index needs to be reset after the game-overview buttons are clicked
 });
 quitButton.addEventListener('click', () => {
   decZidx();
@@ -75,7 +71,7 @@ quitButton.addEventListener('click', () => {
 });
 anotherCategoryButton.addEventListener('click', () => {
   decZidx();
-  toggleOverlay();
+  // toggleOverlay();
   hideAndShow(gameOverviewPage, categoriesPage);
   hideAndShow(gamePage, categoriesPage);
 });
@@ -87,14 +83,10 @@ continueButton.addEventListener('click', () => {
 
 // helper functions
 function toggleOverlay() {
-  if (overlayEl.classList.contains('visible')) {
-    overlayEl.classList.remove('visible');
-    overlayEl.classList.add('hidden');
-  } else if (overlayEl.classList.contains('hidden')) {
-    overlayEl.classList.remove('hidden');
-    overlayEl.classList.add('visible');
-  }
+  overlayEl.classList.toggle('visible');
+  overlayEl.classList.toggle('hidden');
 }
+// make a function for toggling visibility in general
 
 function hideAndShow(elToHide, elToShow, hideClass = 'hidden', showClass = 'visible') {
   elToHide.classList.remove(showClass);
@@ -103,6 +95,22 @@ function hideAndShow(elToHide, elToShow, hideClass = 'hidden', showClass = 'visi
   elToShow.classList.remove(hideClass);
   elToShow.classList.add(showClass);
 }
+// >>>>>>>>>>>>>>>>>>>>>>>>> TESTING AREA
+function toggleVisibility(element, isVisible) {
+  if (isVisible) {
+    element.classList.remove('visible');
+    element.classList.add('hidden');
+  } else {
+    element.classList.remove('hidden');
+    element.classList.add('visible');
+  }
+}
+function toggleOverlay2() {
+  overlayEl.classList.contains('visible')
+    ? toggleVisibility(overlayEl, true)
+    : toggleVisibility(overlayEl, false);
+}
+// <<<<<<<<<<<<<<<<<<<<<<<<<< TESTING AREA
 // overlay z-index is 1; pages z-index is 2;
 function incZidx(el1 = overlayEl, el2 = gameOverviewPage) {
   el1.style.zIndex = 3;
@@ -112,3 +120,10 @@ function decZidx(el1 = overlayEl, el2 = gameOverviewPage) {
   el1.style.zIndex = 1;
   el2.style.zIndex = 2;
 }
+
+// HIGH : rewrite the navigation between the "screens" using the history API
+//
+// implement the keyboard, word categories, hints, difficulty, gimmicks (freeze, invincibility, hardcore mode)
+// make it responsive
+// local storage -- achievements, score, leaderboard
+// make some new menus -- settings, game modes, aesthetic themes, languages

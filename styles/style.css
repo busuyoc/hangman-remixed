@@ -262,10 +262,6 @@ body {
   width: 19rem;
   height: 6rem;
 }
-.lower-section {
-  width: 100%;
-  height: 100%;
-}
 
 .tutorial-tips-container {
   display: flex;
@@ -316,6 +312,8 @@ body {
   align-items: center;
 
   gap: 1.6rem;
+  width: 100%;
+  max-height: 100%;
 }
 .general-button.choose-category-button {
   width: 100%;
@@ -330,7 +328,7 @@ body {
 /* ======================== */
 .flow-control--parent-section-container.game-page--section {
   z-index: 2;
- 
+  padding: 26px;
 }
 .burger-menu-container {
   display: flex;
@@ -348,18 +346,112 @@ body {
   align-items: center;
 }
 .lives-bar {
-  width: 70px;
+  width: 74px;
   height: 10px;
   background-color: palevioletred;
-  border-radius: 4px;
+  border-radius: 16px;
+  padding: 2px;
 }
+.lives-bar > div {
+  border-radius: 0.4rem;
+  width: 50%;
+  height: 8px;
+  display: inline-block;
+}
+.lives-left-bar {
+  /* initially the width is 100% */
+  background: var(--dark-navy);
+}
+.lives-lost-bar {
+  /* initially the width is 0% */
 
+  background: pink;
+}
 .lives-container img {
   margin-left: 1rem;
 }
+.game-page--section .lower-section {
+  border: 1px solid white;
+}
+/*  */
+.secret-word--container {
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid red;
+
+  margin-bottom: 12rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.secret-word--row {
+  max-width: 100%;
+  height: 70px;
+
+  border: 1px solid palegreen;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.secret-letter {
+  width: 4rem;
+  height: 6.6rem;
+  border-radius: 1.2rem;
+  font-size: 4rem;
+
+  margin: 0;
+  pointer-events: none;
+  /* keep an eye on this */
+
+  background: var(--blue);
+}
+.keyboard-container {
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid palevioletred;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.4rem;
+}
+.keyboard-row {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.keyboard-button {
+  display: inline-block;
+  border-radius: 0.8rem;
+  border: none;
+
+  min-width: 3rem;
+
+  background-color: white;
+  padding: 1.2rem 1rem;
+  color: var(--dark-navy);
+  font-size: 2.6rem;
+  text-transform: uppercase;
+
+  &:hover {
+    background: var(--dark-navy);
+    color: var(--white);
+    transition: background 0.3s ease-in-out;
+    transition: color 0.3s ease;
+  }
+  &:active {
+    background: rgba(0, 20, 121, 0.83);
+  }
+}
 
 /* ======================== */
-/* PAUSE GAME MENU  */
+/* GAME OVERVIEW PAGE  */
 /* ======================== */
 .flow-control--parent-section-container.game-overview-page--section {
   z-index: 3;
@@ -409,5 +501,4 @@ body {
   &:active {
     font-size: 3.3rem;
   }
-  /* NOW IT WORKS?????? */
 }
