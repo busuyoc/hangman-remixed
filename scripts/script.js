@@ -1,65 +1,91 @@
 'use strict';
 
-const modalMenuEl = document.querySelector('.modal-menu-container');
-const menuPlayBtn = document.querySelector('.menu-play-button');
-const menuTutorialBtn = document.querySelector('.general-button.menu-tutorial-button');
-const chooseCategoryBtns = document.querySelectorAll('.general-button.choose-category-button');
-
+// dom variables
+// overlay
 const overlayEl = document.querySelector('.overlay');
+// welcome menu "page"
+const welcomePage = document.querySelector(
+  '.flow-control--parent-section-container.welcome-page--section'
+);
+const welcomeMenuPlayBtn = document.querySelector('.welcome-menu--play-button');
+const howToPlayBtn = document.querySelector('.how-to-play--button');
+// tutorial (howtoplay) page
+const tutorialPage = document.querySelector(
+  '.flow-control--parent-section-container.tutorial-page--section'
+);
+const tutorialGoBackBtn = document.querySelector('.go-back-button.tutorial-page--section');
+// choose the category page
+const categoriesPage = document.querySelector(
+  '.flow-control--parent-section-container.categories-page--section'
+);
+const categoriesGoBackButton = document.querySelector('.go-back-button.categories-page--section');
+const chooseCategoryBtns = document.querySelectorAll('.choose-category-button');
+// actual game page
+const gamePage = document.querySelector(
+  '.flow-control--parent-section-container.game-page--section'
+);
+const burgerMenuButton = document.querySelector('.burger-menu-button');
+// game overview page and menu
+const gameOverviewPage = document.querySelector(
+  '.flow-control--parent-section-container.game-overview-page--section'
+);
+const continueButton = document.querySelector('.continue-button');
+const anotherCategoryButton = document.querySelector('.another-category-button');
+const quitButton = document.querySelector('.special-button.quit-button');
 
-const tutorialContainerEl = document.querySelector('.tutorial-container');
-const goBackBtn = document.querySelector('.go-back-button');
-const secondGoBackBtn = document.querySelector('.second-go-back-button');
-
-const categoriesContainerEl = document.querySelector('.categories-container');
-
-const gameSectionContainerEl = document.querySelector('.game-section-container');
-
-// NOTE: make a function that takes 2 params,
-// applying hidden to the first one
-// and visible to the second one
-
-// ----- maybe use toggle, not sure about the flow
-// something like "visible-no"/"visible-yes" and the part with no/yes
-// can be switched with string interpolation
-// ??? what happens if the el has display: flex
-
-// actually maybe have more params so i can control yes/no more dynamically
-// contains(class) maybe
-// tutorialBtn.addEventListener('click', () => {
-//   modalMenuEl.classList.add('hidden');
-//   overlayEl.classList.remove('hidden');
-//   overlayEl.classList.add('visible');
-//   console.log('HELLO OVERLAY');
-// });
-
-// nesting things inside OVERLAY is NOT a good idea
-
-// should keep overlay toggling separate from hiding/showing
-menuTutorialBtn.addEventListener('click', () => {
+// event listeners for buttons
+welcomeMenuPlayBtn.addEventListener('click', () => {
   toggleOverlay();
-  hideAndShow(modalMenuEl, tutorialContainerEl);
+  hideAndShow(welcomePage, categoriesPage);
 });
-goBackBtn.addEventListener('click', () => {
+howToPlayBtn.addEventListener('click', () => {
   toggleOverlay();
-  hideAndShow(tutorialContainerEl, modalMenuEl);
+  hideAndShow(welcomePage, tutorialPage);
 });
-secondGoBackBtn.addEventListener('click', () => {
+tutorialGoBackBtn.addEventListener('click', () => {
   toggleOverlay();
-  hideAndShow(categoriesContainerEl, modalMenuEl);
+  hideAndShow(tutorialPage, welcomePage);
 });
-menuPlayBtn.addEventListener('click', () => {
+categoriesGoBackButton.addEventListener('click', () => {
   toggleOverlay();
-  hideAndShow(modalMenuEl, categoriesContainerEl);
+  hideAndShow(categoriesPage, welcomePage);
 });
-
 chooseCategoryBtns.forEach((categoryBtn) => {
   categoryBtn.addEventListener('click', () => {
-    hideAndShow(categoriesContainerEl, gameSectionContainerEl);
+    hideAndShow(categoriesPage, gamePage);
   });
 });
-// helper function
+burgerMenuButton.addEventListener('click', () => {
+  incZidx(overlayEl, gameOverviewPage);
+  gameOverviewPage.classList.remove('hidden');
 
+  // the game-page--section is still visible
+  // the modal moves on top of it (gains z-index: +1)
+  // game-overview-page--section moves on top of it all (z-index: 10)
+  //
+  // overlay z-index is 1; pages z-index is 2;
+  //
+  // the overlay z-index needs to be reset after the game-overview buttons are clicked
+});
+quitButton.addEventListener('click', () => {
+  decZidx();
+  toggleOverlay();
+  hideAndShow(gameOverviewPage, welcomePage);
+  hideAndShow(gamePage, welcomePage);
+});
+anotherCategoryButton.addEventListener('click', () => {
+  decZidx();
+  toggleOverlay();
+  hideAndShow(gameOverviewPage, categoriesPage);
+  hideAndShow(gamePage, categoriesPage);
+});
+continueButton.addEventListener('click', () => {
+  decZidx();
+  gameOverviewPage.classList.remove('visible');
+  gameOverviewPage.classList.add('hidden');
+});
+
+// helper functions
 function toggleOverlay() {
   if (overlayEl.classList.contains('visible')) {
     overlayEl.classList.remove('visible');
@@ -69,14 +95,20 @@ function toggleOverlay() {
     overlayEl.classList.add('visible');
   }
 }
-// problem here because instructionsContainer has flex, not block
-// NOTE: having flex on body kills the flow
-// possible solution: have a container for the "screen" u r moving to
-// so there is no need for flex handling below ????
+
 function hideAndShow(elToHide, elToShow, hideClass = 'hidden', showClass = 'visible') {
   elToHide.classList.remove(showClass);
   elToHide.classList.add(hideClass);
 
   elToShow.classList.remove(hideClass);
   elToShow.classList.add(showClass);
+}
+// overlay z-index is 1; pages z-index is 2;
+function incZidx(el1 = overlayEl, el2 = gameOverviewPage) {
+  el1.style.zIndex = 3;
+  el2.style.zIndex = 4;
+}
+function decZidx(el1 = overlayEl, el2 = gameOverviewPage) {
+  el1.style.zIndex = 1;
+  el2.style.zIndex = 2;
 }

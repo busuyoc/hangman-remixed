@@ -14,22 +14,31 @@
     <!--  -->
     <!-- MENU MODAL for WELCOME AND PLAY -->
     <!--  -->
-    <div class="modal-menu-container visible">
-      <img src="./images/logo-hangman.svg" alt="Hangman title" class="menu-title-image" />
-      <button class="menu-play-button">
-        <img src="./images/play-button.svg" alt="Play Button" class="menu-play-image" />
-      </button>
-      <button class="general-button menu-tutorial-button">How to play</button>
+    <div class="flow-control--parent-section-container welcome-page--section visible">
+      <div class="modal-menu-container welcome-page--section flex-center">
+        <div class="modal-menu welcome-page--section">
+          <img
+            src="./images/logo-hangman.svg"
+            alt="Hangman title"
+            class="modal-menu--title-image"
+          />
+          <button class="welcome-menu--play-button">
+            <img
+              src="./images/play-button.svg"
+              alt="Play Button"
+              class="welcome-menu-button--play-image"
+            />
+          </button>
+          <button class="general-button how-to-play--button">How to play</button>
+        </div>
+      </div>
     </div>
     <!--  -->
     <!-- TUTORIAL MENU -->
     <!--  -->
-    <div class="tutorial-container hidden">
+    <div class="flow-control--parent-section-container tutorial-page--section hidden">
       <div class="upper-section">
-        <button class="special-button go-back-button">
-          <!-- special-button for styling -->
-          <!-- go-back-button for the action -->
-          <!-- and such -->
+        <button class="special-button go-back-button tutorial-page--section flex-center">
           <img src="./images/go-back.svg" alt="Go back to the welcome menu" />
         </button>
         <div class="upper-section-title-img">
@@ -41,44 +50,44 @@
           <div class="tip-container">
             <div class="tip-number">01</div>
             <div class="tip-title">Choose a category</div>
-            <div class="tip-text">
+            <p class="tip-text">
               First, choose a word category, like animals or movies. The computer then randomly
               selects a secret word from that topic and shows you blanks for each letter of the
               word.
-            </div>
+            </p>
           </div>
           <div class="tip-container">
             <div class="tip-number">02</div>
             <div class="tip-title">Guess the Letters</div>
-            <div class="tip-text">
+            <p class="tip-text">
               Take turns guessing letters. The computer fills in the relevant blank spaces if your
               guess is correct. If it’s wrong, you lose some health, which empties after eight
               incorrect guesses.
-            </div>
+            </p>
           </div>
           <div class="tip-container">
             <div class="tip-number">03</div>
             <div class="tip-title">Win or Lose</div>
-            <div class="tip-text">
+            <p class="tip-text">
               You win by guessing all the letters in the word before your health runs out. If the
               health bar empties before you guess the word, you lose.
-            </div>
+            </p>
           </div>
         </div>
       </div>
     </div>
 
     <!--  -->
-    <!-- CATEGORIES CONTAINER  -->
+    <!-- choose CATEGORIES PAGE  -->
     <!--  -->
-    <div class="categories-container hidden">
+    <div class="flow-control--parent-section-container categories-page--section hidden">
       <div class="upper-section">
-        <button class="special-button second-go-back-button">
+        <button class="special-button go-back-button categories-page--section flex-center">
+         
           <img src="./images/go-back.svg" alt="Go back to welcome menu" />
         </button>
-        <div class="upper-section-title-img">
+        <div class="upper-section-title-img categories-page--section">
           <img src="./images/pick-a-category.svg" alt="How to play" />
-          <!-- put event listeners for that -->
         </div>
       </div>
       <div class="lower-section">
@@ -89,16 +98,16 @@
         <button class="general-button choose-category-button">Animals</button>
         <button class="general-button choose-category-button">Sports</button>
         <!-- https://www.datamuse.com/api/ -->
-        <!-- learn to work with that  so it is dynamic -->
       </div>
     </div>
+
     <!--  -->
     <!-- GAME SECTION -->
     <!--  -->
-    <div class="game-section-container hidden">
+    <div class="flow-control--parent-section-container game-page--section hidden">
       <div class="upper-section">
         <div class="burger-menu-container">
-          <button class="special-button">
+          <button class="special-button burger-menu-button flex-center">
             <img src="./images/burger-menu.svg" alt="Open the Main Menu" />
           </button>
           <span class="burger-menu-title">Countries</span>
@@ -109,6 +118,23 @@
         </div>
       </div>
     </div>
+
+    <!--  -->
+    <!-- paused game MENU -->
+    <!--  -->
+    <div class="flow-control--parent-section-container game-overview-page--section hidden">
+      <div class="modal-menu-container game-overview flex-center">
+        <div class="modal-menu game-overview">
+          <img src="./images/paused.svg" alt="Game paused" class="modal-menu--title-image" />
+          <div class="game-overview-menu--buttons-container">
+            <button class="general-button continue-button">Continue</button>
+            <button class="general-button another-category-button">Category</button>
+            <button class="special-button quit-button flex-center">Quit Game</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ===================== Body End ===================== -->
   </body>
 </html>
