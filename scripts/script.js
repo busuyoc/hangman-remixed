@@ -43,8 +43,8 @@ welcomeMenuPlayBtn.addEventListener('click', () => {
 howToPlayBtn.addEventListener('click', () => {
   toggleOverlay2();
   // hideAndShow(welcomePage, tutorialPage);
-  toggleVisibility(welcomePage, true)
-  toggleVisibility(tutorialPage, false)
+  toggleVisibility(welcomePage, true);
+  toggleVisibility(tutorialPage, false);
 });
 tutorialGoBackBtn.addEventListener('click', () => {
   toggleOverlay();
@@ -127,3 +127,5 @@ function decZidx(el1 = overlayEl, el2 = gameOverviewPage) {
 // make it responsive
 // local storage -- achievements, score, leaderboard
 // make some new menus -- settings, game modes, aesthetic themes, languages
+
+
